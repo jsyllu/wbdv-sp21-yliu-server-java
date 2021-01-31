@@ -1,0 +1,38 @@
+
+
+
+/*=============
+Main Content
+===============*/
+.main-content{
+    padding: 2rem 10rem;
+    max-width: 1200px;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+}
+.main-text{
+    margin-bottom: 5rem;
+}
+.main-text h1{
+    margin-bottom: 1rem;
+}
+.user-admin{
+    color: var(--color-font-dark);
+    background: transparent;
+    border: 2px solid white;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    cursor: pointer;
+    display: inline-block;
+}
+.user-admin:hover{
+    transition: 0.15s ease-in-out;
+    transform: scale(1.05);
+    border: 5px solid white;
+    color: white;
+    font-weight: 700;
+}
+
+
