@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery of Courses</title>
+    <!-- CSS only -->
+    <!--    bootstrap 5.0 -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+          crossorigin="anonymous">
+    <!--    google font -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap">
+    <!--    fontawesome icon -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--    global css -->
+    <link rel="stylesheet"
+          href="../style.css">
+    <!--    custom css -->
+    <link rel="stylesheet"
+          href="gallery.style.client.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-light">
+    <div class="container">
+        <!--        Navbar Brand -->
+        <a class="navbar-brand"
+           href="../index.html">
+            Econ<span>Studio</span>
+        </a>
+        <!--        !collapse without jquery -->
+        <input type="checkbox" id="no-jq-navbar-toggler" class="d-none" />
+
+        <label for="no-jq-navbar-toggler"
+               class="navbar-toggler"
+               data-toggle="collapse"
+               data-target="#navbarSupportedContent"
+               aria-controls="navbarSupportedContent"
+               aria-expanded="false"
+               aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </label>
+
+        <div class="navbar-menu collapse navbar-collapse"
+             id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active"
+                       aria-current="page"
+                       href="../index.html">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="gallery.template.client.html">
+                        Courses
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="../dashboard/dashboard.template.client.html">
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="../auth/login.template.client.html">
+                        Log In
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="../auth/register.template.client.html">
+                        Register
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Main Gallery of Courses page content-->
+<div class="gallery container">
+    <h1>Gallery of Courses</h1>
+    <!-- active courses -->
+    <div class="active-courses">
+        <div class="row">
+            <div class="course-card col-lg-6 col-xl-4">
+                <a href="#">
+                    <figure class="img-caption">
+                        <img class="card-img"
+                             src="https://www.sapphirewebsolutions.com/wp-content/uploads/2019/09/Web-Development-Trends.jpg"
+                             alt="web">
+                        <div class="card-caption">
+                            <figcaption class="card-title">
+                                Web Development
+                            </figcaption>
+                            <div class="card-detail">
+                                <figcaption>
+                                    Jose Annunziato
+                                </figcaption>
+                                <figcaption>
+                                    CS-5610&ensp;|&ensp;2021 Spring
+                                </figcaption>
+                            </div>
+                            <figcaption class="go-icon">
+                                <i class="fa fa-user-plus fa-lg"></i>
+                            </figcaption>
+                        </div>
+                    </figure>
+                </a>
+            </div>
+            <div class="course-card col-lg-6 col-xl-4">
+                <a href="#">
+                    <figure class="img-caption">
+                        <img class="card-img"
+                             src="https://www.clubitc.ro/wp-content/uploads/2019/10/iStock-966248982.jpg"
+                             alt="robotic">
+                        <div class="card-caption">
+                            <figcaption class="card-title">
+                                Robotic Science and Systems
+                            </figcaption>
+                            <div class="card-detail">
+                                <figcaption>
+                                    Robert Platt
+                                </figcaption>
+                                <figcaption>
+                                    CS-5335&ensp;|&ensp;2021 Spring
+                                </figcaption>
+                            </div>
+                            <figcaption class="go-icon">
+                                <i class="fa fa-user-plus fa-lg"></i>
+                            </figcaption>
+                        </div>
+                    </figure>
+                </a>
+            </div>
+            <div class="course-card col-lg-6 col-xl-4">
+                <a href="#">
+                    <figure class="img-caption">
+                        <img class="card-img"
+                             src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c3245c7e-9aa7-406e-8aed-1ecc566959ec/ddhzc2q-795ee219-a11b-44c1-8db4-5ebd5ab09cc3.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvYzMyNDVjN2UtOWFhNy00MDZlLThhZWQtMWVjYzU2Njk1OWVjXC9kZGh6YzJxLTc5NWVlMjE5LWExMWItNDRjMS04ZGI0LTVlYmQ1YWIwOWNjMy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.JdNPYhHrlrdJNWmoPZVyqp1UWq6SIjGOzEkQnGf9PBU"
+                             alt="database">
+                        <div class="card-caption">
+                            <figcaption class="card-title">
+                                Database Management Systems
+                            </figcaption>
+                            <div class="card-detail">
+                                <figcaption>
+                                    Martin Schedlbauer
+                                </figcaption>
+                                <figcaption>
+                                    CS-5200&ensp;|&ensp;2021 Spring
+                                </figcaption>
+                            </div>
+                            <figcaption class="go-icon">
+                                <i class="fa fa-user-plus fa-lg"></i>
+                            </figcaption>
+                        </div>
+                    </figure>
+                </a>
+            </div>
+            <div class="course-card col-lg-6 col-xl-4">
+                <a href="#">
+                    <figure class="img-caption">
+                        <img class="card-img"
+                             src="https://www.crn.com/resources/0263-10e24538a932-582b1d7f148d-1000/ai-artificial-intelligence-mind.jpg"
+                             alt="machine">
+                        <div class="card-caption">
+                            <figcaption class="card-title">
+                                Machine Learning
+                            </figcaption>
+                            <div class="card-detail">
+                                <figcaption>
+                                    Jose Annunziato
+                                </figcaption>
+                                <figcaption>
+                                    CS-5800&ensp;|&ensp;2021 Spring
+                                </figcaption>
+                            </div>
+                            <figcaption class="go-icon">
+                                <i class="fa fa-user-plus fa-lg"></i>
+                            </figcaption>
+                        </div>
+                    </figure>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">
+            Design & Development:
+            <a href="https://github.com/jsyllu"
+               target="_blank">
+                <i class="fa fa-github"></i>
+                @jsyllu
+            </a>
+        </span>
+        <span class="text-muted">
+            &copy; 2021 EconStudio
+        </span>
+    </div>
+</footer>
+
+</body>
+</html>
