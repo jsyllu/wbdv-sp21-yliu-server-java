@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editor</title>
+    <!-- CSS only -->
+    <!--    bootstrap 5.0 -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+          crossorigin="anonymous">
+    <!--    google font -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap">
+    <!--    fontawesome icon -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--    global css -->
+    <link rel="stylesheet"
+          href="../style.css">
+    <!--    custom css -->
+    <link rel="stylesheet"
+          href="course-editor.style.client.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-light">
+    <div class="container">
+        <!--        Navbar Brand -->
+        <a class="navbar-brand"
+           href="../index.html">
+            Econ<span>Studio</span>
+        </a>
+        <!--        !collapse without jquery -->
+        <input type="checkbox" id="no-jq-navbar-toggler" class="d-none" />
+
+        <label for="no-jq-navbar-toggler"
+               class="navbar-toggler"
+               data-toggle="collapse"
+               data-target="#navbarSupportedContent"
+               aria-controls="navbarSupportedContent"
+               aria-expanded="false"
+               aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </label>
+
+        <div class="navbar-menu collapse navbar-collapse"
+             id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active"
+                       aria-current="page"
+                       href="../index.html">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="../gallery/gallery.template.client.html">
+                        Courses
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="../dashboard/dashboard.template.client.html">
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="../auth/login.template.client.html">
+                        Log In
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="../auth/register.template.client.html">
+                        Register
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Main Course Editor page content -->
+<div class="editor container">
+    <h1>Course Editor</h1>
+    <div class="editor-container">
+        <!--    editor header row -->
+        <div class="editor-header row">
+            <!--        editor header - left - go back & course name -->
+            <div class="editor-header-title col-4">
+                <a class="back-icon"
+                   href="../dashboard/dashboard.template.client.html">
+                    <i class="back-icon fa fa-chevron-left fa-2x"></i>
+                </a>
+                <div class="course-info">
+                    <h5 class="course-title">
+                        Web Development
+                        <i class="fa fa-pencil"></i>
+                    </h5>
+                    <p class="course-id">
+                        CS-5610-01&ensp;|&ensp;2021 Spring
+                    </p>
+                </div>
+            </div>
+            <!--        editor header - right - lesson tabs -->
+            <div class="editor-header-lesson col-8">
+                <ul class="nav nav-tabs"
+                    role="tablist">
+                    <li class="nav-item">
+                        <a href="#"
+                           class="nav-link">
+                            Build
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"
+                           class="nav-link active"
+                           aria-current="page">
+                            Pages
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Theme
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Store
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Apps
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Settings
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--    editor content row -->
+        <div class="editor-content row">
+            <div class="modules col-4">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        Module 1 - jQuery
+                        <i class="fa fa-times"></i>
+                    </li>
+                    <li class="list-group-item active">
+                        Module 2 - React
+                        <i class="fa fa-times"></i>
+                    </li>
+                    <li class="list-group-item">
+                        Module 3 - Redux
+                        <i class="fa fa-times"></i>
+                    </li>
+                    <li class="list-group-item">
+                        Module 4 - Native
+                        <i class="fa fa-times"></i>
+                    </li>
+                    <li class="list-group-item">
+                        Module 5 - Angular
+                        <i class="fa fa-times"></i>
+                    </li>
+                    <li class="list-group-item">
+                        Module 6 - Node
+                        <i class="fa fa-times"></i>
+                    </li>
+                    <li class="list-group-item">
+                        Module 7 - Mongo
+                        <i class="fa fa-times"></i>
+                    </li>
+                    <li class="list-group-item">
+                        <input type="text"
+                               value="Module 8 - New Title"
+                               placeholder="New Title">
+                        <i class="fa fa-plus"></i>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="topics col-8">
+                <!--            editor content topic pills -->
+                <!--            <div class="row">-->
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a href="#"
+                           class="nav-link active">
+                            Topic 1
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"
+                           class="nav-link">
+                            Topic 2
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"
+                           class="nav-link">
+                            Topic 3
+                        </a>
+                    </li>
+                    <li class="nav-item new-topic">
+                        <a href="#"
+                           class="nav-link">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!--            </div>-->
+                <!--            editor content topic buttons -->
+                <div class="topic-btn-group">
+                    <div class="row">
+                        <button class="btn btn-outline-primary">
+                            Save
+                        </button>
+                        <div class="topic-preview row">
+                            <p class="col-6">Preview</p>
+                            <i class="col-6 fa fa-toggle-off"></i>
+                            <i class="col-6 fa fa-toggle-on d-none"></i>
+                        </div>
+                    </div>
+                </div>
+                <!--            editor content topic widget -->
+                <div class="widget-group container">
+                    <div class="widget">
+                        <div class="widget-header">
+                            <div class="row">
+                                <h3 class="widget-type-title">
+                                    Heading Widget
+                                </h3>
+                                <div class="widget-header-right">
+                                    <a href=""
+                                       class="widget-position-icon">
+                                        <i class="fa fa-chevron-up fa-lg"></i>
+                                    </a>
+                                    <a href=""
+                                       class="widget-position-icon">
+                                        <i class="fa fa-chevron-down fa-lg"></i>
+                                    </a>
+                                    <select class="widget-type-select">
+                                        <option value="heading" selected>Heading</option>
+                                        <option value="text">Text</option>
+                                        <option value="image">Image</option>
+                                        <option value="video">Video</option>
+                                        <option value="file">File</option>
+                                        <option value="url">Url</option>
+                                    </select>
+                                    <a href="" class="widget-delete-icon">
+                                        <i class="fa fa-times fa-lg"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <input class="widget-content" type="text" value="Heading text" placeholder="widget content">
+                        <select class="widget-type-detail-select">
+                            <option value="h1" selected>Heading 1</option>
+                            <option value="h2">Heading 2</option>
+                            <option value="h3">Heading 3</option>
+                            <option value="h4">Heading 4</option>
+                            <option value="h5">Heading 5</option>
+                        </select>
+                        <input class="widget-name" type="text" value="Widget name" placeholder="Widget name">
+                        <hr>
+                        <div class="widget-preview">
+                            <h4>Preview</h4>
+                            <h1>Heading Text</h1>
+                        </div>
+                    </div>
+                    <!--                add new widget -->
+                    <div class="new-widget-icon col-2">
+                        <a href="">
+                            <i class="fa fa-plus-circle fa-3x"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">
+            Design & Development:
+            <a href="https://github.com/jsyllu"
+               target="_blank">
+                <i class="fa fa-github"></i>
+                @jsyllu
+            </a>
+        </span>
+        <span class="text-muted">
+            &copy; 2021 EconStudio
+        </span>
+    </div>
+</footer>
+
+</body>
+</html>
