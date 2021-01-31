@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log In</title>
+    <!-- CSS only -->
+    <!--    bootstrap 5.0 -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+          crossorigin="anonymous">
+    <!--    google font -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap">
+    <!--    fontawesome icon -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--    global css -->
+    <link rel="stylesheet"
+          href="../style.css">
+    <!--    custom css -->
+    <link rel="stylesheet"
+          href="auth.style.client.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-light">
+    <div class="container">
+        <!--        Navbar Brand -->
+        <a class="navbar-brand"
+           href="../index.html">
+            Econ<span>Studio</span>
+        </a>
+        <!--        !collapse without jquery -->
+        <input type="checkbox" id="no-jq-navbar-toggler" class="d-none" />
+
+        <label for="no-jq-navbar-toggler"
+               class="navbar-toggler"
+               data-toggle="collapse"
+               data-target="#navbarSupportedContent"
+               aria-controls="navbarSupportedContent"
+               aria-expanded="false"
+               aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </label>
+
+        <div class="navbar-menu collapse navbar-collapse"
+             id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active"
+                       aria-current="page"
+                       href="../index.html">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="../gallery/gallery.template.client.html">
+                        Courses
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="../dashboard/dashboard.template.client.html">
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="login.template.client.html">
+                        Log In
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="register.template.client.html">
+                        Register
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Log In -->
+<div class="container">
+    <div class="login-form">
+        <form action="">
+            <h2 class="text-center">Log In</h2>
+            <hr>
+            <div class="form-group">
+                <span class="form-control-icon">
+                    <i class="fa fa-envelope-o fa-fw"></i>
+                </span>
+                <label for="inputEmail" class="sr-only">Email</label>
+                <input class="form-control"
+                       id="inputEmail"
+                       type="email"
+                       placeholder="Email Address"
+                       required autofocus>
+            </div>
+            <div class="form-group">
+                <span class="form-control-icon">
+                    <i class="fa fa-key fa-fw"></i>
+                </span>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input class="form-control"
+                       id="inputPassword"
+                       type="password"
+                       placeholder="Password"
+                       required>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block"
+                        type="submit"
+                        onclick="location.href='../profile/profile.template.client.html'">
+                    Log in
+                </button>
+            </div>
+            <div class="form-group d-flex justify-content-between">
+                <label class="checkbox-inline">
+                    <input type="checkbox"
+                           value="remember-me">
+                    Remember me
+                </label>
+                <a href="#">
+                    Forgot Password
+                </a>
+            </div>
+        </form>
+        <div class="hint-text">
+            New to here?
+            <a href="register.template.client.html">
+                Sign Up
+            </a>
+        </div>
+        <div class="hint-text">
+            <a href="../index.html">
+                Cancel
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">
+            Design & Development:
+            <a href="https://github.com/jsyllu"
+               target="_blank">
+                <i class="fa fa-github"></i>
+                @jsyllu
+            </a>
+        </span>
+        <span class="text-muted">
+            &copy; 2021 EconStudio
+        </span>
+    </div>
+</footer>
+
+</body>
+</html>l>
