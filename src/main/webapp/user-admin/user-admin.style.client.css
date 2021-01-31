@@ -1,0 +1,32 @@
+/*===============
+Main User Admin
+================*/
+.user-admin-dashboard{
+    margin: 1rem auto;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+.user-admin-dashboard h1, p{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.user-admin{
+    padding: 1rem 2rem;
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, .1);
+    border-radius: 15px;
+    background-color: rgba(255,255,255,0.05);
+}
+table{
+    display: block;
+    justify-content: center;
+}
+th, td{
+    padding: 1rem;
+}
+button{
+    border-radius: 10px;
+    background: var(--color-light);
+    border: none;
+    margin-right: 1rem;
+}
