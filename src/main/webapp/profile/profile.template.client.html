@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <!-- CSS only -->
+    <!--    bootstrap 5.0 -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+          crossorigin="anonymous">
+    <!--    google font -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap">
+    <!--    fontawesome icon -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--    global css -->
+    <link rel="stylesheet"
+          href="../style.css">
+    <!--    custom css -->
+    <link rel="stylesheet"
+          href="profile.style.client.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-light">
+    <div class="container">
+        <!--        Navbar Brand -->
+        <a class="navbar-brand"
+           href="../index.html">
+            Econ<span>Studio</span>
+        </a>
+        <!--        !collapse without jquery -->
+        <input type="checkbox" id="no-jq-navbar-toggler" class="d-none" />
+
+        <label for="no-jq-navbar-toggler"
+               class="navbar-toggler"
+               data-toggle="collapse"
+               data-target="#navbarSupportedContent"
+               aria-controls="navbarSupportedContent"
+               aria-expanded="false"
+               aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </label>
+
+        <div class="navbar-menu collapse navbar-collapse"
+             id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active"
+                       aria-current="page"
+                       href="../index.html">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="../gallery/gallery.template.client.html">
+                        Courses
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="../dashboard/dashboard.template.client.html">
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="../auth/login.template.client.html">
+                        Log In
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="../auth/register.template.client.html">
+                        Register
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Main profile page content -->
+<div class="profile container">
+    <div class="alert alert-primary" role="alert">
+        Your profile has been updated successfully!
+    </div>
+
+    <h1>Profile</h1>
+
+    <div class="profile-card">
+        <div class="text-center">
+            <h3>Jessica Liu</h3>
+            <small>Since Jan 2021</small>
+        </div>
+
+        <hr>
+
+        <form action="">
+            <div class="form-group form-floating">
+                <label for="input-username"
+                       class="col-form-label">
+                    Username
+                </label>
+                <input class="form-control"
+                       id="input-username"
+                       type="text"
+                       name="username"
+                       value="jessica"
+                       placeholder="jessica"
+                       readonly>
+            </div>
+            <div class="form-group form-floating">
+                <label for="input-dob"
+                       class="col-form-label">
+                    Date of Birth
+                </label>
+                <input class="form-control"
+                       type="date"
+                       id="input-dob"
+                       value="2021-01-01"
+                       data-inputmask="'alias': 'date'">
+            </div>
+            <div class="form-group form-floating">
+                <label for="input-email"
+                       class="col-form-label">
+                    Email
+                </label>
+                <input class="form-control"
+                       id="input-email"
+                       type="email"
+                       name="email"
+                       value="jessica@wonderland.com"
+                       placeholder="example@abc.com"
+                       required>
+            </div>
+            <div class="form-group form-floating">
+                <label for="input-phone"
+                       class="col-form-label">
+                    Phone
+                </label>
+                <input class="form-control"
+                       id="input-phone"
+                       type="tel"
+                       name="phone"
+                       value="000-000-0000"
+                       placeholder="xxx-xxx-xxxx"
+                       required>
+            </div>
+            <div class="form-group form-floating">
+                <label for="select-role"
+                       class="col-form-label">
+                    Role
+                </label>
+                <select id="select-role"
+                        class="form-select"
+                        aria-label="Floating label select"
+                        disabled>
+                    <option value="student"
+                            selected>
+                        Student
+                    </option>
+                    <option value="instructor">
+                        Instructor
+                    </option>
+                </select>
+            </div>
+            <div class="form-group form-floating">
+                <label for="input-year"
+                       class="col-form-label">
+                    Graduation Year
+                </label>
+                <input class="form-control"
+                       id="input-year"
+                       type="date"
+                       name="year"
+                       value="2022 Spring">
+            </div>
+        </form>
+
+        <button class="btn btn-outline-primary btn-block"
+                type="submit">
+            Update Profile
+        </button>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">
+            Design & Development:
+            <a href="https://github.com/jsyllu"
+               target="_blank">
+                <i class="fa fa-github"></i>
+                @jsyllu
+            </a>
+        </span>
+        <span class="text-muted">
+            &copy; 2021 EconStudio
+        </span>
+    </div>
+</footer>
+
+</body>
+</html>
