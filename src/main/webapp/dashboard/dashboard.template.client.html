@@ -132,14 +132,14 @@
             <input type="radio"
                    name="radio-options"
                    id="current"
-                   checked>
+                   checked/>
 
             <label for="archives">
                 Archives
             </label>
             <input type="radio"
                    name="radio-options"
-                   id="archives">
+                   id="archives"/>
 
             <div class="slide-item"></div>
         </div>
@@ -297,6 +297,18 @@
         </span>
     </div>
 </footer>
+
+<script>
+    $(document).ready(
+        function() {
+            var $radio = $('input[type=radio]'),
+                checked = $radio.attr('checked')
+            $radio.click(function () {
+                checked = !checked;
+                $(this).attr('checked', checked)
+            });
+    });
+</script>
 
 </body>
 </html>
