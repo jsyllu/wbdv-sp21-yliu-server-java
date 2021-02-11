@@ -1,8 +1,8 @@
-# Econ Studio
+# EconStudio
 
-Development & Design: Jess Liu
+Design & Development: Jess Liu
 
-## Description
+## What is EconStudio?
 
-A learning management system for instructors and students.
+A learning management system for instructors to create/manage course content and assignment and for students to enroll course, view course content, and take quiz.
 
