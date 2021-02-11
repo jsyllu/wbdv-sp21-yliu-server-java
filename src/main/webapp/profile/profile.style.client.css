@@ -78,3 +78,13 @@ Profile Card
     font-size: 12px;
     color: #777;
 }
+.hint-text a{
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+    color: #fff;
+    text-align: center;
+}
+.hint-text a:hover{
+    text-decoration: none;
+}

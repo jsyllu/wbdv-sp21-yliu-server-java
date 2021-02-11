@@ -103,6 +103,30 @@
 
         <form action="">
             <div class="form-group form-floating">
+                <label for="input-firstname"
+                       class="col-form-label">
+                    First Name
+                </label>
+                <input class="form-control"
+                       id="input-firstname"
+                       type="text"
+                       name="firstname"
+                       value="Jessica"
+                       placeholder="first name">
+            </div>
+            <div class="form-group form-floating">
+                <label for="input-lastname"
+                       class="col-form-label">
+                    Last Name
+                </label>
+                <input class="form-control"
+                       id="input-lastname"
+                       type="text"
+                       name="lastname"
+                       value="Liu"
+                       placeholder="last name">
+            </div>
+            <div class="form-group form-floating">
                 <label for="input-username"
                        class="col-form-label">
                     Username
@@ -111,20 +135,9 @@
                        id="input-username"
                        type="text"
                        name="username"
-                       value="jessica"
-                       placeholder="jessica"
+                       value="jessicaliu"
+                       placeholder="username"
                        readonly>
-            </div>
-            <div class="form-group form-floating">
-                <label for="input-dob"
-                       class="col-form-label">
-                    Date of Birth
-                </label>
-                <input class="form-control"
-                       type="date"
-                       id="input-dob"
-                       value="2021-01-01"
-                       data-inputmask="'alias': 'date'">
             </div>
             <div class="form-group form-floating">
                 <label for="input-email"
@@ -140,6 +153,51 @@
                        required>
             </div>
             <div class="form-group form-floating">
+                <label for="input-password"
+                       class="col-form-label">
+                    Password
+                </label>
+                <input class="form-control"
+                       id="input-password"
+                       type="password"
+                       name="password"
+                       value="password"
+                       placeholder="password"
+                       required>
+            </div>
+            <div class="form-group form-floating">
+                <label for="input-dob"
+                       class="col-form-label">
+                    Date of Birth
+                </label>
+                <input class="form-control"
+                       type="date"
+                       id="input-dob"
+                       value="2021-01-01"
+                       data-inputmask="'alias': 'date'">
+            </div>
+            <div class="form-group form-floating">
+                <label for="select-role"
+                       class="col-form-label">
+                    Role
+                </label>
+                <select id="select-role"
+                        class="form-select"
+                        aria-label="Floating label select"
+                        disabled>
+                    <option value="STUDENT"
+                            selected>
+                        Student
+                    </option>
+                    <option value="INSTRUCTOR">
+                        Instructor
+                    </option>
+                    <option value="ADMIN">
+                        Admin
+                    </option>
+                </select>
+            </div>
+            <div class="form-group form-floating">
                 <label for="input-phone"
                        class="col-form-label">
                     Phone
@@ -151,24 +209,6 @@
                        value="000-000-0000"
                        placeholder="xxx-xxx-xxxx"
                        required>
-            </div>
-            <div class="form-group form-floating">
-                <label for="select-role"
-                       class="col-form-label">
-                    Role
-                </label>
-                <select id="select-role"
-                        class="form-select"
-                        aria-label="Floating label select"
-                        disabled>
-                    <option value="student"
-                            selected>
-                        Student
-                    </option>
-                    <option value="instructor">
-                        Instructor
-                    </option>
-                </select>
             </div>
             <div class="form-group form-floating">
                 <label for="input-year"
@@ -188,6 +228,10 @@
             Update Profile
         </button>
     </div>
+    <div class="hint-text">
+        <a href="../index.html">Sign Out</a>
+    </div>
+
 </div>
 
 
