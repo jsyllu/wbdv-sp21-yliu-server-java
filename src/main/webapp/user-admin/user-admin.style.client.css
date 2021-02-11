@@ -12,7 +12,7 @@ Main User Admin
     margin-bottom: 2rem;
 }
 .user-admin{
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
     box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, .1);
     border-radius: 15px;
     background-color: rgba(255,255,255,0.05);
@@ -22,11 +22,17 @@ table{
     justify-content: center;
 }
 th, td{
-    padding: 1rem;
+    padding: 0.25rem;
+}
+.form-control {
+    padding: .3rem .5rem;
 }
 button{
-    border-radius: 10px;
-    background: var(--color-light);
+    color: inherit;
+    background: none;
     border: none;
-    margin-right: 1rem;
+    padding: 0;
+}
+button:hover{
+    color: var(--color-light);
 }
