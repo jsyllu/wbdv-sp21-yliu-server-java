@@ -1,9 +1,6 @@
 package com.example.econstudio.services;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
@@ -14,6 +11,21 @@ public class HelloWorldService{
 		return "Hello World";
 	}
 
+	@GetMapping("/sum/{A}/{B}")
+	public Integer sum(
+			@PathVariable("A") Integer A,
+			@PathVariable("B") Integer B) {
+		return A+B;
+	}
+
+	@GetMapping("/my/hello/object")
+	public HelloObject getHelloObject() {
+		HelloObject ho = new HelloObject();
+		ho.setId(123);
+		ho.setName("New Hello Object");
+		return ho;
+	}
+
 	@GetMapping("/hello/{name}")
 	public String sayHelloToNameWithMessage(
 			@RequestParam("message") String msg,
@@ -21,10 +33,14 @@ public class HelloWorldService{
 		return "Hello " + nameVariable + ", message = " + msg;
 	}
 
-	@GetMapping("/message")
-	public String getMessage() {
+//	@GetMapping("/message")
+	@RequestMapping(value = "/getmessage",
+			method = RequestMethod.GET,
+			produces = "application/json")
+	public Message getMessage() {
 		Message msg = new Message();
-		return msg.text + " created at " + msg.createdAt;
+//		return msg.text + " created at " + msg.createdAt;
+		return msg;
 	}
 }
 
