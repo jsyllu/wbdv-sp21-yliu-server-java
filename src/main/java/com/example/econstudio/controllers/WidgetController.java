@@ -1,6 +1,7 @@
 package com.example.econstudio.controllers;
 
-import com.example.econstudio.models.Widget;
+import com.example.econstudio.models.widgets.AbstractWidget;
+import com.example.econstudio.models.widgets.GenericWidget;
 import com.example.econstudio.services.WidgetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,28 +15,28 @@ public class WidgetController {
     WidgetService widgetService; //= new WidgetService();
 
     @PostMapping("/api/topics/{tid}/widgets")
-    public Widget createWidget(
+    public AbstractWidget createWidget(
             @PathVariable("tid") String topicId,
-            @RequestBody Widget widget
+            @RequestBody GenericWidget widget
     ) {
         widget.setTopicId(topicId);
         return widgetService.createWidget(topicId, widget);
     }
 
     @GetMapping("/api/topics/{tid}/widgets")
-    public List<Widget> findWidgetsForTopic(
+    public List<AbstractWidget> findWidgetsForTopic(
             @PathVariable("tid") String topicId
     ) {
         return widgetService.findWidgetsForTopic(topicId);
     }
 
     @GetMapping("/api/widgets")
-    public List<Widget> findAllWidgets() {
+    public List<AbstractWidget> findAllWidgets() {
         return widgetService.findAllWidgets();
     }
 
     @GetMapping("/api/widgets/{wid}")
-    public Widget findWidgetById(
+    public AbstractWidget findWidgetById(
             @PathVariable("wid") Long id
     ) {
         return widgetService.findWidgetById(id);
@@ -44,7 +45,7 @@ public class WidgetController {
     @PutMapping("/api/widgets/{wid}")
     public Integer updateWidget(
             @PathVariable("wid") Long id,
-            @RequestBody Widget widget2Update
+            @RequestBody GenericWidget widget2Update
     ) {
         return widgetService.updateWidget(id, widget2Update);
     }

@@ -1,6 +1,6 @@
 package com.example.econstudio.services;
 
-import com.example.econstudio.models.Widget;
+import com.example.econstudio.models.widgets.*;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,16 +14,28 @@ import java.util.List;
 @Service
 public class WidgetService {
 
-    private List<Widget> widgets = new ArrayList<>();
+    private final List<AbstractWidget> widgets = new ArrayList<>();
 
     {
-        Widget w1 = new Widget("123abc", "W1", 1L, Widget.WidgetType.HEADING, "New Header 1");
-        Widget w2 = new Widget("123abc", "W2", 2L, Widget.WidgetType.PARAGRAPH, "Some text here to form a sample paragraph.");
-        Widget w3 = new Widget("123abc", "W3", 3L, Widget.WidgetType.URL, "url");
-        w3.setUrl("www.google.com");
-        widgets.add(w1);
-        widgets.add(w2);
-        widgets.add(w3);
+        String topicId = "60579aea2f9bc6001783c3ef";
+        HeadingWidget hw = new HeadingWidget(topicId, IWidget.WidgetType.HEADING, 1);
+        hw.setHeading("New Header 1");
+        ParagraphWidget pw = new ParagraphWidget(topicId, IWidget.WidgetType.PARAGRAPH, 2);
+        pw.setText("Some text here to form a sample paragraph.");
+        ImageWidget iw = new ImageWidget(topicId, IWidget.WidgetType.IMAGE, 3);
+        iw.setSource("https://www.sapphirewebsolutions.com/wp-content/uploads/2019/09/Web-Development-Trends.jpg");
+        iw.setText("This is a sample image.");
+        UrlWidget uw = new UrlWidget(topicId, IWidget.WidgetType.URL, 4);
+        uw.setUrl("www.google.com");
+        VideoYoutubeWidget vw = new VideoYoutubeWidget(topicId, IWidget.WidgetType.VIDEO_YOUTUBE, 5);
+        vw.setTitle("Project Prototype");
+        vw.setVideoId("rMFHE_E-GFc");
+
+        widgets.add(hw);
+        widgets.add(pw);
+        widgets.add(iw);
+        widgets.add(uw);
+        widgets.add(vw);
     }
 
     /**
@@ -37,15 +49,17 @@ public class WidgetService {
      * Create a widget for a topic.
      *
      * @param tid id of the topic which contains this new widget
-     * @param w a new widget to store in server
+     * @param gw a new GenericWidget to be cast in to an AbstractWidget first and then store in server
      * @return a new Widget object stored in server
      */
-    public Widget createWidget(String tid, Widget w) {
-        w.setTopicId(tid);
-        Long id = (new Date()).getTime();
-        w.setId(id);
-        widgets.add(w);
-        return w;
+    public AbstractWidget createWidget(String tid, GenericWidget gw) {
+        gw.setTopicId(tid);
+        gw.setWidgetOrder(this.widgets.size()+1); // add to last
+        AbstractWidget widget = castGenericWidgetToAbstract(gw); // cast to a type of AbstractWidget
+        assert widget != null;
+        widget.castGenericWidget(gw); // copy all attribute of GenericWidget to AbstractWidget
+        widgets.add(widget);
+        return widget;
     }
 
     /**
@@ -53,7 +67,7 @@ public class WidgetService {
      *
      * @return a list of all Widget objects in the server.
      */
-    public List<Widget> findAllWidgets() {
+    public List<AbstractWidget> findAllWidgets() {
         return widgets;
     }
 
@@ -63,9 +77,9 @@ public class WidgetService {
      * @param topicId topic id of widgets
      * @return a list of Widget objects under the {@param topicId}
      */
-    public List<Widget> findWidgetsForTopic(String topicId) {
-        List<Widget> widgetsForTopic = new ArrayList<>();
-        for (Widget w : this.widgets) {
+    public List<AbstractWidget> findWidgetsForTopic(String topicId) {
+        List<AbstractWidget> widgetsForTopic = new ArrayList<>();
+        for (AbstractWidget w : this.widgets) {
             if (w.getTopicId().equals(topicId)) {
                 widgetsForTopic.add(w);
             }
@@ -79,8 +93,8 @@ public class WidgetService {
      * @param id id of the widget object
      * @return the matching widget object or null if not found
      */
-    public Widget findWidgetById(Long id) {
-        for (Widget w : this.widgets) {
+    public AbstractWidget findWidgetById(Long id) {
+        for (AbstractWidget w : this.widgets) {
             if (w.getId().equals(id)) {
                 return w;
             }
@@ -95,15 +109,29 @@ public class WidgetService {
      * @param widget2Update the widget object to update
      * @return an integer indicating the status of the update operation, 1 successful and 0 otherwise
      */
-    public Integer updateWidget(Long id, Widget widget2Update) {
-        Widget widget;
-        for (int i = 0; i < this.widgets.size(); i++) {
+    public Integer updateWidget(Long id, GenericWidget widget2Update) {
+        AbstractWidget widget = null;
+        int i = 0;
+        // locate the old widget's index and object
+        while (i < this.widgets.size()) {
             widget = this.widgets.get(i);
             if (widget.getId().equals(id)) {
-                widget2Update.setUpdatedAt(new Date());
-                this.widgets.set(i, widget2Update);
-                return 1;
+                break;
             }
+            i++;
+        }
+        // update the widget with the new object, change object class if type differs
+        if (widget != null) {
+            IWidget.WidgetType type = widget2Update.getType();
+            widget2Update.setUpdatedAt(new Date()); // update the updatedAt attribute
+            if (type.equals(widget.getType())) { // same type
+                widget.copyAttributes(widget2Update); // copy attributes from param obj
+            } else { // different type
+                widget = castGenericWidgetToAbstract(widget2Update); // cast to a type of AbstractWidget
+                assert widget != null;
+                widget.castGenericWidget(widget2Update); // copy all attribute of GenericWidget to AbstractWidget
+            }
+            this.widgets.set(i, widget); // insert the updated widget back to list
         }
         return 0;
     }
@@ -115,7 +143,7 @@ public class WidgetService {
      * @return an integer indicating the status of the delete operation, 1 successful and 0 otherwise
      */
     public Integer deleteWidget(Long id) {
-        Iterator<Widget> widgetIterator = widgets.iterator();
+        Iterator<AbstractWidget> widgetIterator = widgets.iterator();
         while (widgetIterator.hasNext()) {
             if (widgetIterator.next().getId().equals(id)) {
                 widgetIterator.remove();
@@ -123,5 +151,31 @@ public class WidgetService {
             }
         }
         return 0;
+    }
+
+    /**
+     * Cast a GenericWidget to AbstractWidget.
+     * @param gw a GenericWidget object
+     * @return an AbstractWidget which has the same type as {@code gw}
+     */
+    private AbstractWidget castGenericWidgetToAbstract(GenericWidget gw) {
+//        AbstractWidget widget = null;
+        IWidget.WidgetType type = gw.getType();
+//        System.out.println(type);
+        switch (type) {
+            case HEADING:
+                return new HeadingWidget(gw.getTopicId(), type, gw.getWidgetOrder());
+            case PARAGRAPH:
+                return new ParagraphWidget(gw.getTopicId(), type, gw.getWidgetOrder());
+            case URL:
+                return new UrlWidget(gw.getTopicId(), type, gw.getWidgetOrder());
+            case IMAGE:
+                return new ImageWidget(gw.getTopicId(), type, gw.getWidgetOrder());
+            case VIDEO_YOUTUBE:
+                return new VideoYoutubeWidget(gw.getTopicId(), type, gw.getWidgetOrder());
+            default:
+                return null;
+        }
+//        return widget;
     }
 }
