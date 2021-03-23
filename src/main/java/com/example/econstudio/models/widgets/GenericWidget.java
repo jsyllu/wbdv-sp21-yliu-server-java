@@ -30,7 +30,6 @@ public class GenericWidget {
     private String title; // video title
 
     public GenericWidget() {
-        this.id = idSeries++;
         this.createdAt = new Date();
         this.updatedAt = this.createdAt;
     }

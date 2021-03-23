@@ -159,9 +159,7 @@ public class WidgetService {
      * @return an AbstractWidget which has the same type as {@code gw}
      */
     private AbstractWidget castGenericWidgetToAbstract(GenericWidget gw) {
-//        AbstractWidget widget = null;
         IWidget.WidgetType type = gw.getType();
-//        System.out.println(type);
         switch (type) {
             case HEADING:
                 return new HeadingWidget(gw.getTopicId(), type, gw.getWidgetOrder());
@@ -176,6 +174,5 @@ public class WidgetService {
             default:
                 return null;
         }
-//        return widget;
     }
 }

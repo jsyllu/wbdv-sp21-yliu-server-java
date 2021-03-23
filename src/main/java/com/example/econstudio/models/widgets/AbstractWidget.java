@@ -25,9 +25,9 @@ public abstract class AbstractWidget implements IWidget {
     }
 
     public AbstractWidget(String topicId, WidgetType type, Integer widgetOrder) {
+        this.id = idSeries++;
         this.createdAt = new Date();
         this.updatedAt = this.createdAt;
-        this.id = idSeries++;
         this.topicId = topicId;
         this.type = type;
         this.widgetOrder = widgetOrder;
@@ -40,7 +40,10 @@ public abstract class AbstractWidget implements IWidget {
      */
     public AbstractWidget castGenericWidget(GenericWidget gw) {
         this.topicId = gw.getTopicId();
-        this.id = gw.getId();
+        if (gw.getId() != null) {
+            this.id = gw.getId();
+            idSeries--;
+        }
         this.type = gw.getType();
         this.widgetOrder = gw.getWidgetOrder();
         this.createdAt = gw.getCreatedAt();

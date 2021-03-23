@@ -6,9 +6,9 @@ package com.example.econstudio.models.widgets;
 public class VideoYoutubeWidget extends AbstractWidget {
 
     private String videoId; // youtube 11 char video id
+    private String title; // video title
     private Integer width; // width of image & video only
     private Integer height; // height of image & video only
-    private String title; // video title
 
     public VideoYoutubeWidget(String topicId, WidgetType type, Integer widgetOrder) {
         super(topicId, type, widgetOrder);
@@ -19,9 +19,10 @@ public class VideoYoutubeWidget extends AbstractWidget {
     @Override
     public AbstractWidget copyAttributes(GenericWidget gw) {
         this.videoId = gw.getVideoId();
+        this.title = gw.getTitle();
         this.width = gw.getWidth();
 //        this.height = gw.getHeight();
-//        this.title = gw.getTitle();
+
         return this;
     }
 
