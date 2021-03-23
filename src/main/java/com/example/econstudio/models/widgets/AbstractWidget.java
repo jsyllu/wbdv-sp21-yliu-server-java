@@ -10,11 +10,11 @@ public abstract class AbstractWidget implements IWidget {
     protected static Long idSeries = new Date().getTime(); // maintain unique id series
 
     protected String topicId; // topic id to group the widget
-    protected final Long id; // unique identifier
+    protected Long id; // unique identifier
     protected WidgetType type; // type
     protected Integer widgetOrder; // order with respect to widgets in the same list
-    private final Date createdAt; // created date and time
-    private Date updatedAt; // updated date and time
+    protected Date createdAt; // created date and time
+    protected Date updatedAt; // updated date and time
     protected String name; //optional name
     private String style; // optional css style applied to the widget
     private String value; // arbitrary initial value interpreted by the widget
@@ -22,7 +22,6 @@ public abstract class AbstractWidget implements IWidget {
     public AbstractWidget() {
         this.createdAt = new Date();
         this.updatedAt = this.createdAt;
-        this.id = idSeries++;
     }
 
     public AbstractWidget(String topicId, WidgetType type, Integer widgetOrder) {
@@ -41,8 +40,10 @@ public abstract class AbstractWidget implements IWidget {
      */
     public AbstractWidget castGenericWidget(GenericWidget gw) {
         this.topicId = gw.getTopicId();
+        this.id = gw.getId();
         this.type = gw.getType();
         this.widgetOrder = gw.getWidgetOrder();
+        this.createdAt = gw.getCreatedAt();
         this.updatedAt = gw.getUpdatedAt();
         this.name = gw.getName();
         this.style = gw.getStyle();
@@ -79,6 +80,10 @@ public abstract class AbstractWidget implements IWidget {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public WidgetType getType() {
         return type;
     }
@@ -97,6 +102,10 @@ public abstract class AbstractWidget implements IWidget {
 
     public Date getCreatedAt() {
         return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
     public Date getUpdatedAt() {
