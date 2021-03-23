@@ -1,8 +1,11 @@
-# EconStudio
+ # Econ-Studio
 
-Design & Development: Jess Liu
+This project is the back-end part of a Learning Management System features automating grading process of quantitative assignments.
 
-## What is EconStudio?
+Deployment: https://econ-studio.herokuapp.com/
 
-A learning management system for instructors to create/manage course content and assignment and for students to enroll course, view course content, and take quiz.
+## Tech Stack
 
+Spring Boot
+
+RESTful API
