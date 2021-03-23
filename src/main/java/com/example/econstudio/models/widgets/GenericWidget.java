@@ -2,6 +2,8 @@ package com.example.econstudio.models.widgets;
 
 import java.util.Date;
 
+import static com.example.econstudio.models.widgets.AbstractWidget.idSeries;
+
 public class GenericWidget {
 
     protected String topicId; // topic id to group the widget
@@ -26,6 +28,12 @@ public class GenericWidget {
     // youtube video
     private String videoId; // youtube 11 char video id
     private String title; // video title
+
+    public GenericWidget() {
+        this.id = idSeries++;
+        this.createdAt = new Date();
+        this.updatedAt = this.createdAt;
+    }
 
     public GenericWidget(String topicId, IWidget.WidgetType type, Integer widgetOrder) {
         this.topicId = topicId;

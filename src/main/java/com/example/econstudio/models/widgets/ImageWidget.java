@@ -19,8 +19,8 @@ public class ImageWidget extends AbstractWidget {
     public AbstractWidget copyAttributes(GenericWidget gw) {
         this.source = gw.getSource();
         this.text = gw.getText();
-        this.width = gw.getWidth();
-        this.height = gw.getHeight();
+//        this.width = gw.getWidth();
+//        this.height = gw.getHeight();
         return this;
     }
 

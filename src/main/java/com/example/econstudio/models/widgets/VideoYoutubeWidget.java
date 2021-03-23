@@ -20,8 +20,8 @@ public class VideoYoutubeWidget extends AbstractWidget {
     public AbstractWidget copyAttributes(GenericWidget gw) {
         this.videoId = gw.getVideoId();
         this.width = gw.getWidth();
-        this.height = gw.getHeight();
-        this.title = gw.getTitle();
+//        this.height = gw.getHeight();
+//        this.title = gw.getTitle();
         return this;
     }
 
