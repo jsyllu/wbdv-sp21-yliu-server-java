@@ -3,6 +3,7 @@ package com.example.econstudio.controllers;
 import com.example.econstudio.models.widgets.AbstractWidget;
 import com.example.econstudio.models.widgets.GenericWidget;
 import com.example.econstudio.services.WidgetService;
+import net.bytebuddy.description.type.TypeList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +16,7 @@ public class WidgetController {
     WidgetService widgetService; //= new WidgetService();
 
     @PostMapping("/api/topics/{tid}/widgets")
-    public AbstractWidget createWidget(
+    public GenericWidget createWidget(
             @PathVariable("tid") String topicId,
             @RequestBody GenericWidget widget
     ) {
@@ -24,19 +25,19 @@ public class WidgetController {
     }
 
     @GetMapping("/api/topics/{tid}/widgets")
-    public List<AbstractWidget> findWidgetsForTopic(
+    public List<GenericWidget> findWidgetsForTopic(
             @PathVariable("tid") String topicId
     ) {
         return widgetService.findWidgetsForTopic(topicId);
     }
 
     @GetMapping("/api/widgets")
-    public List<AbstractWidget> findAllWidgets() {
+    public List<GenericWidget> findAllWidgets() {
         return widgetService.findAllWidgets();
     }
 
     @GetMapping("/api/widgets/{wid}")
-    public AbstractWidget findWidgetById(
+    public GenericWidget findWidgetById(
             @PathVariable("wid") Long id
     ) {
         return widgetService.findWidgetById(id);
