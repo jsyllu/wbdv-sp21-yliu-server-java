@@ -11,7 +11,8 @@ public interface IWidget {
         PARAGRAPH,
         URL,
         IMAGE,
-        VIDEO_YOUTUBE
+        VIDEO_YOUTUBE,
+        LIST
     }
 
     String getTopicId();
