@@ -7,8 +7,8 @@ public class ImageWidget extends AbstractWidget {
 
     private String source;
     private String text;
-    private int width;
-    private int height;
+    private Integer width;
+    private Integer height;
 
     public ImageWidget(String topicId, WidgetType type, Integer widgetOrder) {
         super(topicId, type, widgetOrder);
@@ -40,19 +40,19 @@ public class ImageWidget extends AbstractWidget {
         this.text = text;
     }
 
-    public int getWidth() {
+    public Integer getWidth() {
         return width;
     }
 
-    public void setWidth(int width) {
+    public void setWidth(Integer width) {
         this.width = width;
     }
 
-    public int getHeight() {
+    public Integer getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(Integer height) {
         this.height = height;
     }
 }
