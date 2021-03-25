@@ -1,33 +1,41 @@
 package com.example.econstudio.models.widgets;
 
 import java.util.Date;
+import javax.persistence.*;
 
-import static com.example.econstudio.models.widgets.AbstractWidget.idSeries;
-
+@Entity
+@Table(name = "widgets")
 public class GenericWidget {
 
-    protected String topicId; // topic id to group the widget
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id; // unique identifier
+    @Temporal(value = TemporalType.TIMESTAMP)
+    private Date createdAt; // created date and time
+    @Temporal(value = TemporalType.TIMESTAMP)
+    private Date updatedAt; // updated date and time
+    protected String topicId; // topic id to group the widget
     protected IWidget.WidgetType type; // type
     protected Integer widgetOrder; // order with respect to widgets in the same list
-    private Date createdAt; // created date and time
-    private Date updatedAt; // updated date and time
-    protected String name; //optional name
+    private String name; //optional name
     private String style; // optional css style applied to the widget
     private String value; // arbitrary initial value interpreted by the widget
+    private String cssClass; // css class implementing css rules
     // heading
     private String heading;
     private Integer size;
     // image
     private String source;
-    private String text; // same for paragraph & image
-    private int width; // same for video & image
-    private int height; // same for video & image
+    private String text; // same for paragraph & image & list
+    private Integer width; // same for video & image
+    private Integer height; // same for video & image
     // url
     private String url; // url of an online resource
     // youtube video
     private String videoId; // youtube 11 char video id
     private String title; // video title
+    // list
+    private Boolean ordered; // ordered list or unordered list
 
     public GenericWidget() {
         this.createdAt = new Date();
@@ -144,19 +152,19 @@ public class GenericWidget {
         this.text = text;
     }
 
-    public int getWidth() {
+    public Integer getWidth() {
         return width;
     }
 
-    public void setWidth(int width) {
+    public void setWidth(Integer width) {
         this.width = width;
     }
 
-    public int getHeight() {
+    public Integer getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(Integer height) {
         this.height = height;
     }
 
@@ -182,5 +190,48 @@ public class GenericWidget {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Boolean isOrdered() {
+        return ordered;
+    }
+
+    public void setOrdered(Boolean ordered) {
+        this.ordered = ordered;
+    }
+
+    public String getCssClass() {
+        return cssClass;
+    }
+
+    public void setCssClass(String cssClass) {
+        this.cssClass = cssClass;
+    }
+
+    public Boolean getOrdered() {
+        return ordered;
+    }
+
+    public void copyAttributes(GenericWidget copy) {
+//        id = copy.getId();
+        topicId = copy.getTopicId();
+        type = copy.getType();
+        widgetOrder = copy.getWidgetOrder();
+//        createdAt = copy.getCreatedAt();
+        updatedAt = new Date();
+        name = copy.getName();
+        style = copy.getStyle();
+        value = copy.getValue();
+        cssClass = copy.getCssClass();
+        heading = copy.getHeading();
+        size = copy.getSize();
+        source = copy.getSource();
+        text = copy.getText();
+        width = copy.getWidth();
+        height = copy.getHeight();
+        url = copy.getUrl();
+        videoId = copy.getVideoId();
+        title = copy.getTitle();
+        ordered = copy.getOrdered();
     }
 }
